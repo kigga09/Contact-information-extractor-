@@ -21,3 +21,25 @@ phone_number = re.compile(r'''
 [\. -]?                # optional . or - or space 
 \d{4}               # 4 digits                                      
                           ), re.X''')
+
+url = re.compile(r'(https?://)?(www\.)?[\w.-]+\.[a-zA-Z]{2,}(/\S*)?')
+
+
+month = [
+    'january', 'february', 'march', 'april', 'may', 'june',
+    'july', 'august', 'september', 'october', 'november', 'december',
+    'jan', 'feb', 'mar', 'apr', 'may', 'jun',
+    'jul', 'aug', 'sep', 'oct', 'nov', 'dec'
+]
+
+date = re.compile(rf'''
+(
+    \d{{1,2}}/\d{{1,2}}/\d{{4}}
+    |
+    \d{{4}}/\d{{1,2}}/\d{{1,2}}
+    |
+    \d{{1,2}}\s(?:{"|".join(month)})\s\d{{4}}
+    |
+    \d{{4}}\s(?:{"|".join(month)})\s\d{{1,2}}
+)
+''', re.X | re.I)
