@@ -13,16 +13,23 @@ email = re.compile(r'''
 
 
 phone_number = re.compile(r'''
-(  
-((\()|(\+1 ))?        #optional ( or +1
-\d{3}           # 3 digits 
-[\. -)]?               # optional . or - or space or )
-\d{3}                      # 3 digits
-[\. -]?                # optional . or - or space 
-\d{4}               # 4 digits                                      
-                          )''', re.X)
+(
+\d{3}
+[-. ]
+\d{3}
+[-. ]
+\d{4}
+)
+''', re.X)
 
-url = re.compile(r'(https?://)?(www\.)?[\w.-]+\.[a-zA-Z]{2,}(/\S*)?')
+url = re.compile(r'''
+(
+(?:https?://|www\.)
+[\w.-]+\.[a-zA-Z]{2,}
+(?:/\S*)?
+)
+''', re.X)
+
 
 month = [
     'january', 'february', 'march', 'april', 'may', 'june',
@@ -43,10 +50,10 @@ date = re.compile(rf'''
 )
 ''', re.X | re.I)
 
-time = re.compile(r'''(
-#24h format 
-(?:[01]?\d|2[0-3]):([0-5]\d)
+time = re.compile(r'''
+(
+(?:[01]?\d|2[0-3]):(?:[0-5]\d)
 |
-#12h format
-(?:[01]?\d|2[0-3]):([0-5]\d) ?(AM|PM)             
-                  )''', re.X|re.I)
+(?:0?[1-9]|1[0-2]):(?:[0-5]\d)\s?(?:AM|PM)
+)
+''', re.X | re.I)
