@@ -24,7 +24,6 @@ phone_number = re.compile(r'''
 
 url = re.compile(r'(https?://)?(www\.)?[\w.-]+\.[a-zA-Z]{2,}(/\S*)?')
 
-
 month = [
     'january', 'february', 'march', 'april', 'may', 'june',
     'july', 'august', 'september', 'october', 'november', 'december',
@@ -43,3 +42,11 @@ date = re.compile(rf'''
     \d{{4}}\s(?:{"|".join(month)})\s\d{{1,2}}
 )
 ''', re.X | re.I)
+
+time = re.compile(r'''(
+#24h format 
+(?:[01]?\d|2[0-3]):([0-5]\d)
+|
+#12h format
+(?:[01]?\d|2[0-3]):([0-5]\d) ?(AM|PM)             
+                  )''', re.X|re.I)
