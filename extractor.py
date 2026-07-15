@@ -13,12 +13,44 @@ times = re.findall(pat.time, txt)
 
 print('\n---Results---:\n')
 
+#emails 
+print(f'Emails({len(emails)}):')
+if emails == []:
+    print('none')
+else:
+    for i in emails:
+        print(f'\t{i}')
 
+#phone numbers
+print(f'Phone Numbers({len(phone_numbers)}):')
+if phone_numbers == []:
+    print('none')
+else:
+    for i in phone_numbers:
+        print(f'\t{i}')
 
+#urls
+print(f'URLs({len(urls)}):')
+if urls == []:
+    print('none')
+else:
+    for i in urls:
+        print(f'\t{i}')
 
-#print(f'phone numbers: {phone_numbers}')
-#print(f'emails: {emails}')
-#print(f'urls: {urls}')
-#print(f'dates: {dates}')
-#print(f'times: {times}')
+#dates
+print(f'Dates({len(dates)}):')
+if dates == []:
+    print('none')
+else:
+    for i in dates:
+        print(f'\t{i}')
+
+#times
+print(f'Times({len(times)}):')
+if times == []:
+    print('none')
+else:
+    for i in times:
+        print(f'\t{i}')
+
 
