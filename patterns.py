@@ -20,7 +20,7 @@ phone_number = re.compile(r'''
 \d{3}                      # 3 digits
 [\. -]?                # optional . or - or space 
 \d{4}               # 4 digits                                      
-                          ), re.X''')
+                          )''', re.X)
 
 url = re.compile(r'(https?://)?(www\.)?[\w.-]+\.[a-zA-Z]{2,}(/\S*)?')
 
